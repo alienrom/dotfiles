@@ -1,0 +1,68 @@
+[ ! "$UID" = "0" ] && archbey -c white
+[  "$UID" = "0" ] && archbey -c green
+#PS1="\[\e[01;31m\]┌─[\[\e[01;35m\u\e[01;31m\]]──[\[\e[00;37m\]${HOSTNAME%%.*}\[\e[01;32m\]]:\w$\[\e[01;31m\]\n\[\e[01;31m\]└──\[\e[01;36m\]>>\[\e[0m\]"
+
+#простой PS1
+#PS1='[\A]\u@\h:\W\$'
+
+#Для работы с гитом
+PS1='[\A]\
+\[\033[01;32m\]\u@\h\[\033[00m\]:\
+\[\033[01;34m\]\W\[\033[00m\]\
+$(git_branch)$(git_dirty) $'
+
+# User specific aliases and functions
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias ll='ls -lah'
+alias ff='echo find ./ -type f -exec grep -i -H \"STRING\"  {} \\\;'
+
+#Алиасы для git
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias go='git checkout '
+alias gk='gitk --all&'
+alias gx='gitx --all'
+
+
+#монтирование iso. общий синтаксис команды получается такой: mountiso [что] [куда]
+alias mountiso='sudo mount -o loop -t iso9660'
+
+#монтирование nrg. общий синтаксис команды получается такой: mountnrg [что] [куда]
+alias mountnrg='mount -t udf,iso9660 -o loop,ro,offset=307200'
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+### Настройка истории
+# Не запоминать дублирующиеся команды
+HISTCONTROL=ignoreboth
+# Количество строк в памяти
+HISTSIZE=1024
+# Количество строк в файле .bash_history
+HISTFILESIZE=10240
+# Формат времени (вкл. запись timestamp)
+HISTTIMEFORMAT='%d.%H.%y %H:%M:%S '
+
+
+# вывод признака системы контроля версии и относительного
+# пути в репозитории
+git_branch() {
+    git branch --no-color 2> /dev/null | grep "*" |\
+        awk -v "clrp=$txtpur" -v "clrr=$txtrst" \
+            '{ print clrp ":git/" $2 clrr}'
+}
+
+# вывод признака наличия изменений в репозитории
+git_dirty() {
+    [ $(git status --short 2> /dev/null | wc -l) != 0 ] && \
+        echo -e "${txtred}*${txtrst}"
+}
+
+

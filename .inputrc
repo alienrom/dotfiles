@@ -1,0 +1,10 @@
+#регистронезависимое дополнение по Таb
+set completion-ignore-case on
+set blink-matching-paren on
+
+#позволяет, набрав часть команды, перемещаться по хистори кнопками курсора «Up» и «Down»
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\eOA": history-search-backward
+"\eOB": history-search-forward
+"\C-w": backward-kill-word
