@@ -18,7 +18,7 @@
 \set VERBOSITY verbose
 \set PAGER OFF
 -- \set HISTFILE ~/.psql_history-:HOST-:DBNAME
-\set HISTFILE ~/.psql_history-:HOST-:DBNAME
+\set HISTFILE ~/.psql_history
 \set HISTSIZE 2000
 \set ECHO_HIDDEN ON
 \set HISTCONTROL ignoredups
