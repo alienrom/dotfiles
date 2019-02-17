@@ -17,7 +17,7 @@
 \x auto
 \set VERBOSITY verbose
 \set PAGER OFF
-\set HISTFILE ~/.psql_history- :HOST - :DBNAME -- Remove space between : and DBNAME
+\set HISTFILE ~/.psql_history-:HOST-:DBNAME -- Remove space between : and DBNAME
 \set HISTSIZE 2000
 \set ECHO_HIDDEN ON
 \set HISTCONTROL ignoredups
