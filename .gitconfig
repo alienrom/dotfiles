@@ -4,11 +4,37 @@
 [core]
 	autocrlf = input
 	safecrlf = true
+	whitespace = trailing-space,space-before-tab
 [alias]
   co = checkout
   ci = commit
   st = status
   br = branch
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  gp =  git push
+  gl = git pull
+  gcm = git checkout master
+  gcb =  git checkout -b
+  gco = git checkout
+  lg = log --date=iso --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit
+  hist = log --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(red)%s %C(bold red){{%an}}%C(reset) %C(blue)%d%C(reset)' --graph --date=short
+  glog = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
   type = cat-file -t
   dump = cat-file -p
+
+[color]
+	ui = auto
+[advice]
+	pushNonFastForward = false
+	statusHints = false
+[diff]
+	renames = copies
+	mnemonicprefix = true
+[branch]
+	autosetupmerge = true
+[push]
+	default = tracking
+[rerere]
+	enabled = true
+[merge]
+	stat = true
