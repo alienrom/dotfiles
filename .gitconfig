@@ -1,6 +1,6 @@
 [user]
 	name = Artur
-	email = alienrom@mail.ru
+	email = 
 [core]
 	autocrlf = input
 	safecrlf = true
