@@ -89,8 +89,9 @@
   cp = cherry-pick -x               # grab a change from a branch
   d = diff                          # diff unstaged changes
   dc = diff --cached                # diff staged changes
-  last = diff HEAD^                 # diff last committed change
+  dlast = diff HEAD^                 # diff last committed change
 
+  last = log -1 HEAD
   l = log --graph --date=short
   changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
   short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
