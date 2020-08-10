@@ -215,7 +215,7 @@ alias wget='wget -c'
 alias header='curl -I'
 
 #монтирование nfs-шары на роутере
-alias mountshare = 'sudo mount -o 'vers=3' 192.168.1.1:/media/AiDisk_a2 /mnt/nfs/'
+alias mountshare="sudo mount -o 'vers=3' 192.168.1.1:/media/AiDisk_a2 /mnt/nfs/"
 
 # Алиасы для git
 alias gs='git status '
@@ -231,9 +231,9 @@ alias get='git '
 alias пше='git '
 alias glp="git pull && git push"
 alias gmne="git merge --no-edit"
-alias spull = "!git stash && git pull --rebase && git stash pop"
-alias spush = "!git stash && git pull --rebase && git push && git stash pop"
-alias ameno = 'commit --amend --no-edit'
+alias spull="!git stash && git pull --rebase && git stash pop"
+alias spush="!git stash && git pull --rebase && git push && git stash pop"
+alias ameno="commit --amend --no-edit"
 
 gitclosepullrequest () {
     local status branch
