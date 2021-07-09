@@ -135,6 +135,7 @@ alias xz='xz -T 0'
 alias 'off=systemctl poweroff'
 alias '7z=7z -mmt=20'
 alias 'dd=dd status=progress'
+alias 'dutop=du --max-depth=1 --human-readable --one-file-system | sort --human-numeric-sort --reverse | head'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
